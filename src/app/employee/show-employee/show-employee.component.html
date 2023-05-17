@@ -1,0 +1,109 @@
+<div class="container col mt-3">
+
+
+    <div class="card">
+        <div class="card-header">
+            Employee
+
+            <button type="button" style="float: right;" class="btn btn-outline-primary" (click)="openModal()">+
+                Add</button>
+            <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add Employee</h4>
+                            <button type="button" class="btn close btn-sm btn-outline-danger" aria-label="Close"
+                                (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- [formGroup]="employeeFormGroup" (ngSubmit)="OnSubmit()" -->
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Name</label>
+                                        <input type="text" formControlName="name" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label>Department</label>
+                                        <input type="text" formControlName="mobileNo" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label>Date Of Joining</label>
+                                        <input type="text" formControlName="emailId" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <button style="float: right;" class="btn btn-success mt-2">Save</button>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+
+                <div class="col-sm-12 col-md-12">
+
+
+                    <!--  normal table -->
+
+                    <table class="table">
+                        <thead style="font-weight: bolder;">
+                            <tr>
+                                <td>Employee Id</td>
+                                <td>Employee Name</td>
+                                <td>Department</td>
+                                <td>Date Of Joining</td>
+                                <td>Actions </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="employeeList.length==0">
+                                <td colspan="4" style="font-weight: bolder;">No Records Found!</td>
+                            </tr>
+                            <tr *ngFor="let data of employeeList;">
+                                <td>{{ data?.employeeId }}</td>
+                                <td>{{ data?.employeeName }}</td>
+                                <td>{{ data?.department }}</td>
+                                <td>{{ data?.dateOfJoining| date:'dd-MM-yyyy' }}</td>
+
+                                <td>
+                                    <!-- (click)="Fillform(data)"  -->
+                                    <button class="btn btn-link  ">Edit</button>
+                                    <button class="btn btn-link"
+                                        (click)="DeleteEmployee(data.employeeId)">Delete</button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
