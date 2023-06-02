@@ -10,7 +10,7 @@ import { DepartmentComponent } from './department/department.component';
 import { AddEditDepartmentComponent } from './department/add-edit-department/add-edit-department.component';
 import { ShowDepartmentComponent } from './department/show-department/show-department.component';
 import {HttpClientModule}from '@angular/common/http';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,9 @@ import {HttpClientModule}from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

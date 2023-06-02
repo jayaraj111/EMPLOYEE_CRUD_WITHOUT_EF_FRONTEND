@@ -10,13 +10,28 @@ import { Department } from 'src/app/Models/department';
 export class ShowDepartmentComponent implements OnInit {
   departmentList: Department[] = [];
   display = "none";
+   department: Department[]=[];
+  dep: any;
+
+  
+
+  ActivateAddEditDepComp:boolean=false;
+
 
   constructor(private _sharedservice: SharedService) {
    
   }
 
   ngOnInit(): void {
-    this. GetDepartments();
+    this.GetDepartments();
+    // dep: this.department = [
+    //   {
+    //     departmentId: "0",
+    //     departmentName: ""
+    //   }
+    // ];
+
+    // console.log(this.dep);
   }
 
   GetDepartments() {
@@ -35,9 +50,39 @@ export class ShowDepartmentComponent implements OnInit {
 
   openModal() {
     this.display = "block";
+    this.ActivateAddEditDepComp=true;
+    this.dep={
+      DepartmentId:0,
+      DepartmentName:""
+      
+    }
+
+   
+  
+  
   }
+
+  editClick(item: any){
+    console.log(item);
+    this.dep=item; 
+     this.display = "block";
+    this.ActivateAddEditDepComp=true;
+  }
+
   onCloseHandled() {
     this.display = "none";
+    this. GetDepartments();
   }
+
+  // deleteClick(item){
+  //   if(confirm('Are you sure??')){
+  //     this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
+  //       alert(data.toString());
+  //       this.refreshDepList();
+  //     })
+  //   }
+  // }
+
+ 
 
 }

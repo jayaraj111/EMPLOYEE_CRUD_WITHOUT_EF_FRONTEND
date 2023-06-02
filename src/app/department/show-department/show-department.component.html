@@ -17,7 +17,7 @@
                         </div>
                         <div class="modal-body">
                             <!-- [formGroup]="employeeFormGroup" (ngSubmit)="OnSubmit()" -->
-                            <form>
+                            <!-- <form>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <label>Name</label>
@@ -33,7 +33,11 @@
 
 
                                 </div>
-                            </form>
+                            </form> -->
+
+                            <app-add-edit-department [dep]="dep" 
+                            *ngIf="ActivateAddEditDepComp">  </app-add-edit-department>
+
                         </div>
 
                     </div>
@@ -68,7 +72,7 @@
                                 <td>{{ data?.departmentName }}</td>
                                 <td>
                                     <!-- (click)="Fillform(data)"  -->
-                                    <button class="btn btn-link  ">Edit</button>
+                                    <button class="btn btn-link  " (click)="editClick(data)">Edit</button>
                                     <button class="btn btn-link"
                                         (click)="DeleteDepartment(data.departmentId)">Delete</button>
                                 </td>

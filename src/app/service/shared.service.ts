@@ -20,14 +20,20 @@ export class SharedService {
   }
 
   
-  CreateDepartment(dep: Department):Observable<Department>{
+  CreateDepartment(dep: any):Observable<Department>{
+    console.log(dep);
     dep.departmentId ="0";
     return this.httpclient.post<Department>(this.baseurl+"Department/", dep);
    }
 
-   UpdateDepartment(dep: Department):Observable<Department>{
+   UpdateDepartment(dep: any):Observable<Department>{
+    console.log(dep);
     return this.httpclient.put<Department>(this.baseurl+"Department/"+dep.departmentId, dep);
    }
+
+  // UpdateDepartment(val:any){
+  //   return this.httpclient.put(this.baseurl+'Department',val);
+  // }
 
    DeleteDepartment(departmentId: string):Observable<Department>{
     return this.httpclient.delete<Department>(this.baseurl+"Department/"+departmentId);
