@@ -2,8 +2,8 @@
 
     <label class="col-sm-4  col-form-label">Department Name</label>
     <div class="col-sm-8">
-        <input type="text" class="form-control" id="DepartmentName" [(ngModel)]="DepartmentName" 
-        placeholder="Enter Department Name">
+        <input type="text" class="form-control" id="DepartmentName" [(ngModel)]="DepartmentName"    
+        [ngModelOptions]="{standalone: true}"  placeholder="Enter Department Name">
     </div>
 </div>
 

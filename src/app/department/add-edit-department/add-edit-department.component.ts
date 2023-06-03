@@ -11,17 +11,26 @@ export class AddEditDepartmentComponent implements OnInit  {
   constructor(private service:SharedService) { }
 
   @Input() dep:any;
-  DepartmentId: string | undefined;
-  DepartmentName:string | undefined;
+  DepartmentId: string ='';
+  DepartmentName:string ='';
+ 
+
 
    // @Input() dep: Department[]=[];
  
   ngOnInit(): void {
-    this.DepartmentId=this.dep.DepartmentId;
-    this.DepartmentName=this.dep.DepartmentName;
-    console.log(this.DepartmentId);
-    console.log(this.DepartmentName);
-    console.log(this.dep);
+    this.DepartmentId=this.dep.departmentId;
+    this.DepartmentName=this.dep.departmentName;
+  }
+
+  ngOnChanges() {
+    if (this.dep) {
+      this.DepartmentId=this.dep.departmentId;
+      this.DepartmentName=this.dep.departmentName;
+    } else {
+      this.DepartmentId = '';
+      this.DepartmentName='';
+    }
   }
 
   addDepartment(){

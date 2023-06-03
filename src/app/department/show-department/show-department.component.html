@@ -16,25 +16,7 @@
                                 (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
-                            <!-- [formGroup]="employeeFormGroup" (ngSubmit)="OnSubmit()" -->
-                            <!-- <form>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <label>Name</label>
-                                        <input type="text" formControlName="name" class="form-control" />
-                                    </div>
-                                   
-                                    <div class="col-sm-12 ">
-                                        <button style="float: right;" class="btn btn-success mt-2">Save</button>
-                                    </div>
-
-
-
-
-
-                                </div>
-                            </form> -->
-
+                           
                             <app-add-edit-department [dep]="dep" 
                             *ngIf="ActivateAddEditDepComp">  </app-add-edit-department>
 
@@ -73,8 +55,7 @@
                                 <td>
                                     <!-- (click)="Fillform(data)"  -->
                                     <button class="btn btn-link  " (click)="editClick(data)">Edit</button>
-                                    <button class="btn btn-link"
-                                        (click)="DeleteDepartment(data.departmentId)">Delete</button>
+                                    <button class="btn btn-link"  (click)="DeleteDepartment(data.departmentId)">Delete</button>
                                 </td>
 
                             </tr>

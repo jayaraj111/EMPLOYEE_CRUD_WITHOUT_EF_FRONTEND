@@ -28,12 +28,8 @@ export class SharedService {
 
    UpdateDepartment(dep: any):Observable<Department>{
     console.log(dep);
-    return this.httpclient.put<Department>(this.baseurl+"Department/"+dep.departmentId, dep);
+    return this.httpclient.put<Department>(this.baseurl+"Department/"+dep.DepartmentId, dep);
    }
-
-  // UpdateDepartment(val:any){
-  //   return this.httpclient.put(this.baseurl+'Department',val);
-  // }
 
    DeleteDepartment(departmentId: string):Observable<Department>{
     return this.httpclient.delete<Department>(this.baseurl+"Department/"+departmentId);

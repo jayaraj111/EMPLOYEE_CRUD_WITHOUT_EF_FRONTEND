@@ -56,10 +56,6 @@ export class ShowDepartmentComponent implements OnInit {
       DepartmentName:""
       
     }
-
-   
-  
-  
   }
 
   editClick(item: any){
@@ -71,17 +67,17 @@ export class ShowDepartmentComponent implements OnInit {
 
   onCloseHandled() {
     this.display = "none";
-    this. GetDepartments();
+    this.GetDepartments();
   }
 
-  // deleteClick(item){
-  //   if(confirm('Are you sure??')){
-  //     this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
-  //       alert(data.toString());
-  //       this.refreshDepList();
-  //     })
-  //   }
-  // }
+  deleteClick(item:any){
+    if(confirm('Are you sure??')){
+      this._sharedservice.DeleteDepartment(item.DepartmentId).subscribe(data=>{
+        alert(data.toString());
+       this.GetDepartments();
+      })
+    }
+  }
 
  
 
